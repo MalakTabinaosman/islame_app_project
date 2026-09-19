@@ -1,0 +1,52 @@
+flutter_native_splash:
+  color: "#202020"
+  color_dark: "#202020"
+
+  image:                assets/images/ic_splash.png
+  image_dark:          assets/images/ic_splash.png
+
+  branding:      assets/images/img_branding.png
+  branding_dark: assets/images/img_branding.png
+
+  fullscreen: true                # default false
+    # if you dont want to hide notif bar, for android just set this to false,
+    # but for ios, add this to your flutter main():
+    # WidgetsFlutterBinding.ensureInitialized();
+    # SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top], );
+
+  #! extra note for IOS:
+  # If you have changed the name(s) of your info.plist file(s), you can specify the filename(s)
+  # with the info_plist_files parameter.  Remove only the # characters in the three lines below,
+  # do not remove any spaces:
+  #info_plist_files:
+  #  - 'ios/Runner/Info-Debug.plist'
+  #  - 'ios/Runner/Info-Release.plist'
+
+  #========================================================================
+
+  # what we did above won't affect Android 12 and newer at all. they have different
+  # handling concept. visit https://developer.android.com/guide/topics/ui/splash-screen
+
+  #! ANDROID 12+ configuration:
+  android_12:
+    # background color
+    color: "#202020"
+    color_dark: "#202020"
+
+    # center-logo
+    # If this parameter is not specified, the app's launcher icon will be used instead.
+    # Please note that the splash screen will be clipped to a circle on the center of the screen.
+    # with background: 960×960 px (fit within circle 640px in diameter)
+    # without background: 1152×1152 px (fit within circle 768px in diameter)
+    # ensure that the most important design elements of your image are placed within a circular area
+    image: assets/images/ic_splash.png
+    image_dark: assets/images/ic_splash.png
+
+    # center-logo background color
+    icon_background_color: "#202020"
+    icon_background_color_dark: "#202020"
+
+    # branding:
+    # The branding image dimensions must be 800x320 px.
+    branding: assets/images/img_branding.png
+    branding_dark: assets/images/img_branding.png
