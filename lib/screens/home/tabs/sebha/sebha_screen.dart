@@ -11,19 +11,19 @@ class SebhaScreen extends StatefulWidget {
 }
 
 class _SebhaScreenState extends State<SebhaScreen> {
-  int _counter = 0;
-  double _turns = 0.0;
-  int _tasbehIndex = 0;
+  int counter = 0;
+  double turns = 0.0;
+  int tasbehIndex = 0;
   final List<String> tasbhe = [" سبحان الله ", " الحمد لله ", " الله اكبر "];
 
   void _onSebhaTap() {
     setState(() {
-      _counter++;
-      _turns += 1 / 33;
+      counter++;
+      turns += 1 / 33;
 
-      if (_counter > 33) {
-        _counter = 1;
-        _tasbehIndex = (_tasbehIndex + 1) % tasbhe.length;
+      if (counter > 33) {
+        counter = 1;
+        tasbehIndex = (tasbehIndex + 1) % tasbhe.length;
       }
     });
   }
@@ -55,7 +55,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     alignment: Alignment.center,
                     children: [
                       AnimatedRotation(
-                        turns: _turns,
+                        turns: turns,
                         duration: const Duration(milliseconds: 200),
                         child: SvgPicture.asset("assets/images/SebhaBody.svg"),
                       ),
@@ -63,13 +63,13 @@ class _SebhaScreenState extends State<SebhaScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            tasbhe[_tasbehIndex],
+                            tasbhe[tasbehIndex],
                             style: titleLarge(color: AppColors.white),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            "$_counter",
+                            "$counter",
                             style: titleLarge(color: AppColors.white),
                           ),
                         ],
